@@ -52,6 +52,8 @@ def divide_to_words(s):
 
 
 def count_mistakes(s):
+    if "less than 180 words!" in s:
+        return '\n0 / 14'
 
     m1 = 0
     m2 = 0
