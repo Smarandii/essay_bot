@@ -136,7 +136,7 @@ def start_message(message):
 @bot.message_handler(content_types=['text'])
 def troll_maria(message):
     if "олег" in (message.text).lower() or "макет" in (message.text).lower():
-        bot.send_message(message.chat.id, "Сметане очень идет её цвет натуральный цвет кожи!!")
+        bot.send_message(message.chat.id, "Сметане очень идет её натуральный цвет кожи!!")
         bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAJTyF5evbloYBk_UiQfC1upRm14GXV3AAIZAAPANk8T0EOA9iBXFEsYBA')
 
 bot.polling()
