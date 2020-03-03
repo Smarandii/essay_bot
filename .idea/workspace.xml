@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae6f1075-6dcb-4611-ba70-db7f44b27024" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-    </list>
+    <list default="true" id="ae6f1075-6dcb-4611-ba70-db7f44b27024" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -192,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583267432590</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="minor improvements ^^">
+      <created>1583275778576</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1583275778576</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,10 +224,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="436" y="0" key="#check/0.0.1366.728@0.0.1366.728" timestamp="1583245023887" />
-    <state x="349" y="0" key="CommitChangelistDialog2" timestamp="1583267431260">
+    <state x="349" y="0" key="CommitChangelistDialog2" timestamp="1583275769580">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="349" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1583267431260" />
+    <state x="349" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1583275769580" />
     <state width="1346" height="146" key="GridCell.Tab.0.bottom" timestamp="1583267326231">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
