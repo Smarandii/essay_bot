@@ -116,7 +116,7 @@ def start_message(message):
                 bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAJTyF5evbloYBk_UiQfC1upRm14GXV3AAIZAAPANk8T0EOA9iBXFEsYBA')
             text = message.text[12::]
             bot.send_chat_action(message.chat.id, action = 'typing')
-            responde = process.count_words(text)
+            responde = process.array_to_string(process.count_words(text))
             bot.send_message(message.chat.id, responde)
 
     elif "/all" in message.text:
