@@ -3,7 +3,7 @@ import telebot
 import check
 import process
 
-token = "token"
+token = "1084915585:AAFN6vrJlOEVzb6qXCekzSqEqbL8-mOQJ28"
 bot = telebot.TeleBot(token)
 owner = 231584958
 

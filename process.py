@@ -5,13 +5,13 @@ def array_to_string(a):
     return responde
 
 def count_words(s):
-    symbols = [".", ",", ":", "-", "!", "?", " ", '']
+    symbols = [".", ",", ":", "-", "!", "?", " ", '', '\n']
     a = divide_to_words(s)
     responde = []
     counter = 0
 
     for i in a:
-        if counter < 275:
+        if counter <= 275:
             if i not in symbols:
                 counter += 1
             responde.append(i)
@@ -25,22 +25,17 @@ def count_words(s):
         responde.append(f"\n \n[words: {str(counter)}]")
         return responde
     if counter > 275:
-        responde.append("\n \n{more than 275 words!}")
+        responde.append("\n \n[original have more than 275 words! in this message first 275 words from original]")
         return responde
 
 
 def divide_to_words(s):
-    symbols = [".", ",", ":", "-", "!", "?", " ", '']
+    symbols = [".", ",", ":", "-", "!", "?", " ", '', '\n']
     w = ''
     words = []
     for i in range(len(s)):
-        if s[i] == "\n":
-            if w != '':
-                words.append(w)
-                w = ''
-            words.append('\n')
 
-        elif s[i] in symbols:
+        if s[i] in symbols:
             if w != '':
                 words.append(w)
                 w = ''
@@ -76,7 +71,6 @@ def count_mistakes(s):
             elif int(s[i + 1]) == 3:
                 k3 = k3 + 1
             elif int(s[i + 1]) == 4:
-                print(s[i - 4] + s[i - 3])
                 k4 = k4 + 1
             elif int(s[i + 1]) == 5:
                 k5 = k5 + 1
