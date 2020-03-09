@@ -49,7 +49,9 @@ def divide_to_words(s):
 def count_mistakes(s):
     if "less than 180 words!" in s:
         return '\n0 / 14'
-
+    exelent = 'У тебя очень хорошее эссе, нужно ... и оно будет прям сильное🔥 Keep going!'
+    good = 'Ты молодец, но тебе нужно ...'
+    poor = 'Не переживай, тебе просто нужно больше практики написания эссе и поработать над ... 💪🏼 Я в тебя верю 😍'
     m1 = 0
     m2 = 0
     m3 = 0
@@ -135,9 +137,15 @@ def count_mistakes(s):
     elif k5 > 3:
         m5 = 0
 
+    if mark >= 11:
+        coment = exelent
+    elif mark <= 10 and mark > 6:
+        coment = good
+    elif mark <= 6:
+        coment = poor
     responde = f'''
 
-Good job!
+{coment}
 
 K1 - {m1} / 3
 K2 - {m2} / 3
