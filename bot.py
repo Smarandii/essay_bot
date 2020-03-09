@@ -19,7 +19,6 @@ def start_message(message):
 Надеюсь он сможет облегчить тебе жизнь!
 Используй /help, чтобы узнать список команд!
 ''')
-
     elif message.text == "/help":
         bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAJTxV5ea3654QNnjIkjhz4kp-t96vMvAAIYAAPANk8T1vonv5xqGPgYBA')
         bot.send_message(message.chat.id, '🛠 Доступные команды:')
@@ -43,7 +42,8 @@ def start_message(message):
 Яндекс.Деньги: 410012188653567
 Сбер: 5469380072221350
 ''')
-
+        bot.send_message(owner, 'somebody pushed the /donate button')
+        
     elif "/findmistakes" in message.text:
         if message.text == "/findmistakes":
             bot.reply_to(message, "Вставь текст, который хочешь проверить после комманды. Вот так: /findmistakes text")

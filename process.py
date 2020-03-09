@@ -66,7 +66,7 @@ def count_mistakes(s):
     mark = 0
 
     for i in range(len(s)):
-        if (s[i].lower() == 'k' or s[i].lower() == 'Рє') and s[i + 1].isdigit():
+        if (s[i].lower() == 'k' or s[i].lower() == 'к') and s[i + 1].isdigit():
             if int(s[i + 1]) == 1:
                 k1 = k1 + 1
             elif int(s[i + 1]) == 2:
