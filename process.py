@@ -102,7 +102,7 @@ def count_mistakes(s):
     elif k2 >= 3:
         m2 = 0
 
-    if k3 < 1:
+    if k3 <= 1:
         mark += 3
         m3 = 3
     elif k3 == 2 or k3 == 3:
@@ -114,7 +114,7 @@ def count_mistakes(s):
     elif k3 > 4:
         m3 = 0
 
-    if k4 < 1:
+    if k4 <= 1:
         mark += 3
         m4 = 3
     elif k4 == 2:
