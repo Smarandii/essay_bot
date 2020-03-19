@@ -31,7 +31,7 @@ def shortcut(s):
     responde = []
     for i in a:
         if check_forshortcut(i):
-            responde.append(i + "(K1❌   )(Shortcuts isn't allowed!)")
+            responde.append(i + "(K1 ❌)(Shortcuts isn't allowed!)")
         else:
             responde.append(i)
     return responde
@@ -44,10 +44,10 @@ def comma(s):
     for i in range(len(a)):
         if a[i].lower() in yes_comma:
             if a[i - 2] != ',' and a[i - 1] != ',':
-                a[i] = a[i] + '(K5❌)(Missing comma)'
+                a[i] = a[i] + '(K5 ❌)(Missing comma)'
         if a[i].lower() in no_comma:
             if a[i - 2] == ',' or a[i - 1] == ',':
-                a[i] = a[i] + '(K5❌)(Extra comma)'
+                a[i] = a[i] + '(K5 ❌)(Extra comma)'
     return a
 
 
@@ -57,9 +57,9 @@ def words(a):
 
     for i in a:
         if i == "i":
-            responde.append(i + f"(К5❌)(Expect \"I\" instead of  \"i\" !) ")
+            responde.append(i + f"(К5 ❌)(Expect \"I\" instead of  \"i\" !) ")
         elif (i not in symbols) and spell.correction(i.lower()) != i.lower() and ('[' not in i) and (']' not in i):
-            responde.append(i + f"(К5❌)(may be '{spell.correction(i)}')")
+            responde.append(i + f"(К5 ❌)")
         else:
             responde.append(i)
 
