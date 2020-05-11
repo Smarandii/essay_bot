@@ -5,6 +5,7 @@ def array_to_string(a):
         responde = responde + i
     return responde
 
+
 def count_words(s):
     symbols = [".", ",", ":", "-", "!", "?", " ", '', '\n']
     a = divide_to_words(s)

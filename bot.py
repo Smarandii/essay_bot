@@ -6,10 +6,15 @@ import process
 token = "1084915585:AAFN6vrJlOEVzb6qXCekzSqEqbL8-mOQJ28"
 bot = telebot.TeleBot(token)
 owner = 231584958
+counted = []
 
-
-@bot.message_handler(commands = ['all', 'start', 'help', 'donate', 'countmistakes', 'findmistakes', 'checkwords', 'checkcomma', 'checkshortcuts', 'countwords', 'all'])
+@bot.message_handler(commands = ['all', 'start', 'help', 'donate', 'countmistakes', 'findmistakes', 'checkwords',
+                                 'checkcomma', 'checkshortcuts', 'countwords', 'all', 'usercount'])
 def start_message(message):
+    if message.chat.id not in counted:
+        counted.append(message.chat.id)
+    if message.text == "/usercount":
+        bot.send_message(message.chat.id, f"Количество пользователей на данный момент: {len(counted)}")
     if message.text == "/start":
         bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAJTv15eay4HLO9sIYOJPGwtDszOVh8TAAIFAAPANk8T-WpfmoJrTXUYBA')
         bot.send_message(message.chat.id, '''
@@ -50,9 +55,6 @@ def start_message(message):
         if message.text == "/findmistakes":
             bot.reply_to(message, "Вставь текст, который хочешь проверить после комманды. Вот так: /findmistakes text")
         else:
-            if "олег" in (message.text).lower() or "макет" in (message.text).lower():
-                bot.send_message(message.chat.id, "Сметане очень идет её цвет натуральный цвет кожи!!")
-                bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAJTyF5evbloYBk_UiQfC1upRm14GXV3AAIZAAPANk8T0EOA9iBXFEsYBA')
             text = message.text[14::]
             bot.send_chat_action(message.chat.id, action = 'typing')
             responde = check.find_mistakes(text)
@@ -62,9 +64,6 @@ def start_message(message):
         if message.text == "/countmistakes":
             bot.reply_to(message, "Вставь текст, который хочешь проверить после комманды. Вот так: /countmistakes text")
         else:
-            if "олег" in (message.text).lower() or "макет" in (message.text).lower():
-                bot.send_message(message.chat.id, "Сметане очень идет её цвет натуральный цвет кожи!!")
-                bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAJTyF5evbloYBk_UiQfC1upRm14GXV3AAIZAAPANk8T0EOA9iBXFEsYBA')
             text = message.text[15::]
             bot.send_chat_action(message.chat.id, action = 'typing')
             responde = process.count_mistakes(text)
@@ -74,9 +73,6 @@ def start_message(message):
         if message.text == "/checkwords":
             bot.reply_to(message, "Вставь текст, который хочешь проверить после комманды. Вот так: /checkwords text")
         else:
-            if "олег" in (message.text).lower() or "макет" in (message.text).lower():
-                bot.send_message(message.chat.id, "Сметане очень идет её цвет натуральный цвет кожи!!")
-                bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAJTyF5evbloYBk_UiQfC1upRm14GXV3AAIZAAPANk8T0EOA9iBXFEsYBA')
             text = message.text[12::]
             bot.send_chat_action(message.chat.id, action = 'typing')
             responde = check.words(text)
@@ -87,9 +83,6 @@ def start_message(message):
         if message.text == "/checkcomma":
             bot.reply_to(message, "Вставь текст, который хочешь проверить после комманды. Вот так: /checkcomma text")
         else:
-            if "олег" in (message.text).lower() or "макет" in (message.text).lower():
-                bot.send_message(message.chat.id, "Сметане очень идет её цвет натуральный цвет кожи!!")
-                bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAJTyF5evbloYBk_UiQfC1upRm14GXV3AAIZAAPANk8T0EOA9iBXFEsYBA')
             text = message.text[12::]
             bot.send_chat_action(message.chat.id, action = 'typing')
             responde = check.comma(text)
@@ -100,9 +93,6 @@ def start_message(message):
         if message.text == "/checkshortcuts":
             bot.reply_to(message, "Вставь текст, который хочешь проверить после комманды. Вот так: /checkshortcuts text")
         else:
-            if "олег" in (message.text).lower() or "макет" in (message.text).lower():
-                bot.send_message(message.chat.id, "Сметане очень идет её цвет натуральный цвет кожи!!")
-                bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAJTyF5evbloYBk_UiQfC1upRm14GXV3AAIZAAPANk8T0EOA9iBXFEsYBA')
             text = message.text[16::]
             bot.send_chat_action(message.chat.id, action = 'typing')
             responde = check.shortcut(text)
@@ -113,9 +103,6 @@ def start_message(message):
         if message.text == "/countwords":
             bot.reply_to(message, "Вставь текст, который хочешь проверить после комманды. Вот так: /countwords text")
         else:
-            if "олег" in (message.text).lower() or "макет" in (message.text).lower():
-                bot.send_message(message.chat.id, "Сметане очень идет её цвет натуральный цвет кожи!!")
-                bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAJTyF5evbloYBk_UiQfC1upRm14GXV3AAIZAAPANk8T0EOA9iBXFEsYBA')
             text = message.text[12::]
             bot.send_chat_action(message.chat.id, action = 'typing')
             responde = process.array_to_string(process.count_words(text))
@@ -126,7 +113,7 @@ def start_message(message):
             bot.reply_to(message, "Вставь текст, который хочешь проверить после комманды. Вот так: /all text")
         else:
             text = message.text[5::]
-            bot.send_chat_action(message.chat.id, action = 'typing')
+            bot.send_chat_action(message.chat.id, action='typing')
             text = check.find_mistakes(text)
             print(text)
             responde = text + process.count_mistakes(text)
@@ -135,8 +122,12 @@ def start_message(message):
 
 @bot.message_handler(content_types=['text'])
 def troll_maria(message):
-    if "олег" in (message.text).lower() or "макет" in (message.text).lower():
-        bot.send_message(message.chat.id, "Сметане очень идет её натуральный цвет кожи!!")
-        bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAJTyF5evbloYBk_UiQfC1upRm14GXV3AAIZAAPANk8T0EOA9iBXFEsYBA')
+    text = message.text
+    bot.send_chat_action(message.chat.id, action='typing')
+    text = check.find_mistakes(text)
+    print(text)
+    responde = text + process.count_mistakes(text)
+    bot.send_message(message.chat.id, responde)
+
 
 bot.polling()
