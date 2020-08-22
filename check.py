@@ -3,12 +3,15 @@ from spellchecker import SpellChecker
 import process
 
 spell = SpellChecker()
-
+NOT_ACCEPTABLE_LANGUAGE = ['kid', 'kids', 'pal', 'pals', 'folks', 'mate', 'mates', 'stupid',
+                      'dumb', 'so', 'guy', 'guys', 'teens', 'too']
 symbols = [".", ",", ":", "-", "!", "?", " ", '', '\n']
 
 
-def find_mistakes(s):
-    responde = process.array_to_string(process.count_words(s))
+def find_mistakes(s, tumbler=True):
+    responde = s
+    if tumbler:
+        responde = process.array_to_string(process.count_words(s))
     responde = process.array_to_string(words(responde))
     responde = process.array_to_string(comma(responde))
     responde = process.array_to_string(shortcut(responde))
@@ -31,7 +34,7 @@ def shortcut(s):
     responde = []
     for i in a:
         if check_forshortcut(i):
-            responde.append(i + "(K1 ❌)(Shortcuts isn't allowed!)")
+            responde.append(i + "(K1 ❌)(Shortcuts are not allowed!)")
         else:
             responde.append(i)
     return responde
@@ -56,10 +59,17 @@ def words(a):
     responde = []
 
     for i in a:
-        if i == "i":
-            responde.append(i + f"(К5 ❌)(Expect \"I\" instead of  \"i\" !) ")
-        elif (i not in symbols) and spell.correction(i.lower()) != i.lower() and ('[' not in i) and (']' not in i):
-            responde.append(i + f"(К5 ❌)")
+        if i in NOT_ACCEPTABLE_LANGUAGE:
+            responde.append(i + f"(К3 ❌)")
+        elif i not in symbols:
+            if i == "i":
+                responde.append(i + f"(К5 ❌)(Expect \"I\" instead of  \"i\" !) ")
+            elif i.lower() == 'cannot':
+                responde.append(i)
+            elif "'" or "`" in i:
+                responde.append(i)
+            elif spell.correction(i.lower()) != i.lower() and ('[' not in i) and (']' not in i):
+                responde.append(i + f"(К5 ❌)")
         else:
             responde.append(i)
 

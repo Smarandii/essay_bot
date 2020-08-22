@@ -6,10 +6,15 @@ import process
 token = "1084915585:AAFN6vrJlOEVzb6qXCekzSqEqbL8-mOQJ28"
 bot = telebot.TeleBot(token)
 owner = 231584958
+counted = []
 
-
-@bot.message_handler(commands=['all', 'start', 'help', 'donate', 'countmistakes', 'findmistakes', 'checkwords', 'checkcomma', 'checkshortcuts', 'countwords', 'all'])
+@bot.message_handler(commands = ['all', 'start', 'help', 'donate', 'countmistakes', 'findmistakes', 'checkwords',
+                                 'checkcomma', 'checkshortcuts', 'countwords', 'all', 'usercount'])
 def start_message(message):
+    if message.chat.id not in counted:
+        counted.append(message.chat.id)
+    if message.text == "/usercount":
+        bot.send_message(message.chat.id, f"Количество пользователей на данный момент: {len(counted)}")
     if message.text == "/start":
         bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAJTv15eay4HLO9sIYOJPGwtDszOVh8TAAIFAAPANk8T-WpfmoJrTXUYBA')
         bot.send_message(message.chat.id, '''
@@ -80,7 +85,7 @@ def start_message(message):
             bot.reply_to(message, "Вставь текст, который хочешь проверить после комманды. Вот так: /checkcomma text")
         else:
             text = message.text[12::]
-            bot.send_chat_action(message.chat.id, action='typing')
+            bot.send_chat_action(message.chat.id, action = 'typing')
             responde = check.comma(text)
             responde = process.array_to_string(responde)
             bot.send_message(message.chat.id, responde)
@@ -100,7 +105,7 @@ def start_message(message):
             bot.reply_to(message, "Вставь текст, который хочешь проверить после комманды. Вот так: /countwords text")
         else:
             text = message.text[12::]
-            bot.send_chat_action(message.chat.id, action='typing')
+            bot.send_chat_action(message.chat.id, action = 'typing')
             responde = process.array_to_string(process.count_words(text))
             bot.send_message(message.chat.id, responde)
 
