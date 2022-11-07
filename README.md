@@ -16,7 +16,7 @@
 
 ## Run this bot localy on your computer:
 1. run **cmd**
-2. `git clone https://github.com/Smarandii/english_essay_check`
+2. download repository `git clone https://github.com/Smarandii/english_essay_check`
 
 **Pro-tip: To change drive in Windows use (D: - change drive to drive D | C: - change drive to drive C)**
 1. change working directory to repository directory `cd english_essay_check`
