@@ -1,5 +1,3 @@
-# check-ege
-
 ## This bot will help you to check basic mistakes in english essay from English Unified state examination:
 - /countwords - calculate words quantity (takes first 275 symbols if the text is longer than 275 symbols)
 - /countmistakes - counts all mistakes in the essay
