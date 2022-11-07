@@ -14,7 +14,7 @@
 4. ![image](https://user-images.githubusercontent.com/48328325/200234073-c24894c0-0b46-4ef6-bcab-2fe1e958a843.png)
 
 
-## Run this bot localy on your computer:
+## Run this bot localy on Windows:
 1. run **cmd**
 2. download repository `git clone https://github.com/Smarandii/english_essay_check`
 
